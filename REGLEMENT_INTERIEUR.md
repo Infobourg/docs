@@ -30,7 +30,7 @@ Les membres qui ne peuvent pas assister aux assemblées générales peuvent se f
 
 Les membres peuvent aussi assister aux assemblées générales par visio ou audio conférence.
 
-# ARTICLE 4 – CONSEIL D'ADMINISTRATION
+## ARTICLE 4 – CONSEIL D'ADMINISTRATION
 Le conseil d'administration est constitué d'au minimum 4 membres.
  
 ## ARTICLE 5 – INDEMNITÉS DE REMBOURSEMENT

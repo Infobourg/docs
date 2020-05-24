@@ -1,0 +1,33 @@
+name: push-develop
+on: 
+  pull_request:
+    paths:
+      - "**.md"
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+        with:
+          output: ''
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: Pull docker image
+        run: docker pull docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template:latest
+      - name: Generate PDFs
+        run: |
+          for FILE in ${{ steps.file_changes.outputs.files}}
+          do 
+            if [[ $FILE == *.md ]]
+            then
+            docker run --rm -u $(id -u):$(id -g) -v $(pwd):/data docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template -t pdf --template=infobourg.html -s --pdf-engine=weasyprint -o ${FILE%.*}.pdf $FILE
+            fi
+          done
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v2
+        with:
+          name: infobourg-documents
+          path: "**/*.pdf"

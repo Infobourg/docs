@@ -121,8 +121,17 @@ En cas de dissolution prononcée selon les modalités prévues à l’article 12
 
 Fait à Villeurbanne, le 30 Septembre 2019
 
-M. Axel Turlier, Président
-
-Mme Cécile Valette, Vice-présidente
-
-M. Ilias Redissi, Secrétaire et membre d'honneur
+<div id="signatories">
+<p class="signatory">
+<span class="signatory-name">M. Axel Turlier</span><br> 
+<span class="signatory-function">Président</span>
+</p>
+<p class="signatory">
+<span class="signatory-name">Mme Cécile Valette</span><br> 
+<span class="signatory-function">Vice-présidente</span>
+</p>
+<p class="signatory">
+<span class="signatory-name">M. Ilias Redissi</span><br> 
+<span class="signatory-function">Secrétaire et membre d’honneur</span>
+</p>
+</div>

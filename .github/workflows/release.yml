@@ -1,0 +1,48 @@
+name: release-pdf
+description: Creates a release on tag & upload pdfs
+on:
+  push:
+    tags
+
+jobs:
+  create-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: Pull docker image
+        run: docker pull docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template:latest
+      - name: Generate PDFs
+        run: |
+          mkdir pdfs
+          for entry in `find . -name "*.md"`
+          do
+            directory=$(dirname "${entry}")
+            mkdir pdfs/${directory}
+            docker run --rm -u $(id -u):$(id -g) -v $(pwd):/data docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template -t pdf --template=infobourg.html -s --pdf-engine=weasyprint -o pdfs/${directory}/${FILE%.*}.pdf $FILE
+          done
+      - name: Zips PDFs
+        run: |
+          zip -r pdfs.zip pdfs
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./pdfs.zip
+          asset_name: pdfs.zip
+          asset_content_type: application/zip

@@ -2,7 +2,8 @@ name: release-pdf
 description: Creates a release on tag & upload pdfs
 on:
   push:
-    tags
+    tags:
+      - *
 
 jobs:
   create-package:

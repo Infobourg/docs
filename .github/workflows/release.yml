@@ -3,7 +3,7 @@ description: Creates a release on tag & upload pdfs
 on:
   push:
     tags:
-      - *
+      - '*'
 
 jobs:
   create-package:

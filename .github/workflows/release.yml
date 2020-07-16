@@ -26,11 +26,11 @@ jobs:
         run: docker pull docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template:latest
       - name: Generate PDFs
         run: |
-          mkdir pdfs
+          mkdir -p pdfs
           for entry in `find . -name "*.md"`
           do
             directory=$(dirname "${entry}")
-            mkdir pdfs/${directory}
+            mkdir -p pdfs/${directory}
             docker run --rm -u $(id -u):$(id -g) -v $(pwd):/data docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template -t pdf --template=infobourg.html -s --pdf-engine=weasyprint -o pdfs/${directory}/${FILE%.*}.pdf $FILE
           done
       - name: Zips PDFs

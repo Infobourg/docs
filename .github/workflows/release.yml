@@ -31,7 +31,7 @@ jobs:
           do
             directory=$(dirname "${entry}")
             mkdir -p pdfs/${directory}
-            docker run --rm -u $(id -u):$(id -g) -v $(pwd):/data docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template -t pdf --template=infobourg.html -s --pdf-engine=weasyprint -o pdfs/${directory}/${FILE%.*}.pdf $FILE
+            docker run --rm -u $(id -u):$(id -g) -v $(pwd):/data docker.pkg.github.com/infobourg/pandoc-infobourg-template/pandoc-infobourg-template -t pdf --template=infobourg.html -s --pdf-engine=weasyprint -o pdfs/${entry%.*}.pdf $entry
           done
       - name: Zips PDFs
         run: |

@@ -59,7 +59,7 @@ L'assemblée générale ordinaire comprend tous les membres de l'association à 
 
 Elle se réunit chaque année au mois d’avril.
 
-Quinze jours au moins avant la date fixée, les membres de l'association sont convoqués par les soins du secrétaire. L'ordre du jour figure sur les convocations.  Le président, assisté des membres du conseil, préside l'assemblée et expose la situation morale ou l’activité de l’association.
+Quinze jours au moins avant la date fixée, les membres de l'association sont convoqués par les soins du secrétaire. L'ordre du jour figure sur les convocations. Le président, assisté des membres du conseil, préside l'assemblée et expose la situation morale ou l’activité de l’association.
 
 Le trésorier rend compte de sa gestion et soumet les comptes annuels (bilan, compte de résultat et annexe) à l'approbation de l’assemblée.
 
@@ -121,8 +121,20 @@ En cas de dissolution prononcée selon les modalités prévues à l’article 12
 
 Fait à Villeurbanne, le 30 Septembre 2019
 
-M. Axel Turlier, Président
-
-Mme Cécile Valette, Vice-présidente
-
-M. Ilias Redissi, Secrétaire et membre d'honneur
+<div id="signatories">
+  <p class="signatory">
+    <span class="signatory-name">M. Axel Turlier</span>
+    <br> 
+    <span class="signatory-function">Président</span>
+  </p>
+  <p class="signatory">
+    <span class="signatory-name">Mme Cécile Valette</span>
+    <br> 
+    <span class="signatory-function">Vice-présidente</span>
+  </p>
+  <p class="signatory">
+    <span class="signatory-name">M. Ilias Redissi</span>
+    <br> 
+    <span class="signatory-function">Secrétaire et membre d’honneur</span>
+  </p>
+</div>

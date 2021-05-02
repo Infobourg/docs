@@ -99,9 +99,7 @@ Tout membre du conseil qui, sans excuse, n'aura pas assisté à trois réunions 
 ## ARTICLE 14 – LE BUREAU
 Le conseil d'administration élit parmi ses membres, un bureau composé de :
 
-1. Un·e président·e ;
-
-1. Un·e ou plusieurs vice-président·e·s ;
+1. Un·e ou plusieur président·e·s ;
 
 1. Un·e secrétaire et, s'il y a lieu, un·e secrétaire adjoint·e ;
 
